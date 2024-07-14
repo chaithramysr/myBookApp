@@ -36,6 +36,11 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    //commented
+    @GetMapping(value = "/getBooksWithPagination",produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Book> getBooksWithPagination(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return bookService.getBookDetailsWithPagination(page, size);
+    }
+
+
 
 }
