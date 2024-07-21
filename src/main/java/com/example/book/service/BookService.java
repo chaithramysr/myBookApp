@@ -30,6 +30,6 @@ public class BookService {
     }
 
     public List<Book> getBookDetailsWithPagination(int page, int size) {
-        return bookRespository.findAll(Pageable.ofSize(size).withPage(page)).getContent();
+        return bookRespository.findAll(Pageable.ofSize(size).withPage(page)).toList();
     }
 }
