@@ -30,13 +30,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/books/**").hasRole("USER")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                )
-                .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
+//                .authorizeHttpRequests(requests -> requests
+//                        .requestMatchers("/auth/**").permitAll()
+//                        .requestMatchers("/books/**").hasRole("USER")
+//                        .requestMatchers("/admin/**").hasRole("ADMIN")
+//                        .anyRequest().authenticated()
+//                )
+//                .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class)
+        ;
         return http.build();
     }
 
